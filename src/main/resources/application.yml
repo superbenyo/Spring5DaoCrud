@@ -24,7 +24,7 @@ spring:
 
 
 mensaje:
-  hola: Hola desde thymeleaf
+  hola: Hola desde Thymeleaf
 
 logging:
   level:
