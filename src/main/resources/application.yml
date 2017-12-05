@@ -16,7 +16,7 @@ spring:
       ddl-auto: create-drop
 
   datasource:
-    url: jdbc:mysql://localhost/db_springboot
+    url: jdbc:mysql://localhost/db_springboot?useSSL=false
     username: root
     password: root
     driver-class-name: com.mysql.jdbc.Driver
