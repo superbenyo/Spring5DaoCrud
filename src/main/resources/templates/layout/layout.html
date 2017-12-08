@@ -23,6 +23,11 @@
             </ul>
         </div>
     </nav>
+    <div class="alert alert-success" th:if="${success != null}" th:text="${success}"></div>
+    <div class="alert alert-danger" th:if="${error != null}" th:text="${error}"></div>
+    <!--<div class="alert alert-warning" th:if="${warning != null}" th:text="${warning}"></div>-->
+    <!--<div class="alert alert-info" th:if="${info != null}" th:text="${info}"></div>-->
+
 </header>
 
 
@@ -38,8 +43,7 @@
         Boot</a> y <a href="http://www.thymeleaf.org">Thymeleaf</a>.
     </p>
     <p>
-        Este proyecto fue desarrollado en IDE Eclipse + Spring Plugins (STS
-        Spring Tool), profesor Andrés Guzmán.<br /> &copy; Company 2017,
+        Este proyecto fue desarrollado en IntelliJ IDEA <br /> &copy; Company 2017,
         Inc. Todos los derechos reservados. Términos de uso y privacidad.<br />
     </p>
     <!-- Optional JavaScript -->
