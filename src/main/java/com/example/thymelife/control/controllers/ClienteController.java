@@ -50,9 +50,12 @@ public class ClienteController {
             return "form";
         }
 
+        String mensajeFlash = (cliente.getId() != null) ? "Cliente Editado con Exito!!" : "Cliente Creado Con Exito";
+
         clienteService.save(cliente);
         status.setComplete();
-        flash.addAttribute("success", "Cliente Creado con Exito!");
+//        flash.addAttribute("success", "Cliente Creado con Exito!");
+        flash.addFlashAttribute("success", mensajeFlash);
         return "redirect:listar";
     }
 
@@ -63,8 +66,9 @@ public class ClienteController {
         Cliente cliente = null;
         if (id > 0){
             cliente = clienteService.findOne(id);
+            System.out.println(cliente.getId());
             if(cliente == null){
-                flash.addAttribute("error", "El cliente no existe");
+                flash.addFlashAttribute("error", "El cliente no existe");
                 return "redirect:/listar";
             }
         }else{
@@ -80,7 +84,7 @@ public class ClienteController {
     public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash){
         if (id > 0){
             clienteService.delete(id);
-            flash.addAttribute("success", "Cliente Eliminado con Exito!");
+            flash.addFlashAttribute("success", "Cliente Eliminado con Exito!");
         }
         return "redirect:/listar";
     }

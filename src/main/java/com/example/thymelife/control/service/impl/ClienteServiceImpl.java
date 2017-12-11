@@ -1,9 +1,12 @@
 package com.example.thymelife.control.service.impl;
 
+import com.example.thymelife.control.component.ClienteConverter;
 import com.example.thymelife.control.service.ClienteService;
 import com.example.thymelife.model.dao.ClienteDao;
+import com.example.thymelife.model.dto.ClienteDto;
 import com.example.thymelife.model.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,10 +22,14 @@ public class ClienteServiceImpl implements ClienteService {
     @Autowired
     private ClienteDao clienteDao;
 
+    @Autowired
+    @Qualifier("clienteConverter")
+    private ClienteConverter clienteConverter;
+
     @Override
     @Transactional(readOnly = true)
-    public List<Cliente> findAll() {
-        return (List<Cliente>)clienteDao.findAll();
+    public List<ClienteDto> findAll() {
+        return clienteConverter.entityToDto((List<Cliente>)clienteDao.findAll());
     }
 
     @Override
