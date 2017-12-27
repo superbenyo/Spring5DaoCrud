@@ -40,6 +40,9 @@ public class Cliente implements Serializable{
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date creadoEn;
 
+    @Column(name = "foto")
+    private String foto;
+
 //    @PrePersist
 //    public void prePersist(){
 //        creadoEn = new Date();
@@ -83,5 +86,13 @@ public class Cliente implements Serializable{
 
     public void setCreadoEn(Date creadoEn) {
         this.creadoEn = creadoEn;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 }
